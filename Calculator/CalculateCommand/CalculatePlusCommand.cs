@@ -8,14 +8,14 @@ namespace Calculator.CalculateCommand
 {
     class CalculatePlusCommand : ICalculateCommand
     {
-        public int Calculate(int value1, int value2, char function)
+        public int Calculate(int value1, int value2, char commandCharacter)
         {
-            int returnValue = 0;
-            if (function == '+')
+            int result = 0;
+            if (commandCharacter == '+')
             {
-                returnValue = value1 + value2;
+                result = value1 + value2;
             }
-            return returnValue;
+            return result;
         }
     }
 }
