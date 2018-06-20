@@ -127,6 +127,7 @@
             this.buttonWith0Value.TabIndex = 7;
             this.buttonWith0Value.Text = "0";
             this.buttonWith0Value.UseVisualStyleBackColor = true;
+            this.buttonWith0Value.Click += new System.EventHandler(this.buttonWith0Value_Click);
             // 
             // clearButton
             // 
@@ -167,6 +168,7 @@
             this.minusButton.TabIndex = 11;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
             // 
             // divideButton
             // 
@@ -177,6 +179,7 @@
             this.divideButton.TabIndex = 12;
             this.divideButton.Text = "/";
             this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
             // 
             // multiplyButton
             // 
@@ -187,6 +190,7 @@
             this.multiplyButton.TabIndex = 13;
             this.multiplyButton.Text = "*";
             this.multiplyButton.UseVisualStyleBackColor = true;
+            this.multiplyButton.Click += new System.EventHandler(this.multiplyButton_Click);
             // 
             // plusButton
             // 
@@ -197,6 +201,7 @@
             this.plusButton.TabIndex = 14;
             this.plusButton.Text = "+";
             this.plusButton.UseVisualStyleBackColor = true;
+            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
             // equalButton
             // 
@@ -207,12 +212,13 @@
             this.equalButton.TabIndex = 15;
             this.equalButton.Text = "=";
             this.equalButton.UseVisualStyleBackColor = true;
+            this.equalButton.Click += new System.EventHandler(this.equalButton_Click);
             // 
             // textBoxForCalculation
             // 
             this.textBoxForCalculation.Location = new System.Drawing.Point(12, 54);
             this.textBoxForCalculation.Name = "textBoxForCalculation";
-            this.textBoxForCalculation.Size = new System.Drawing.Size(397, 20);
+            this.textBoxForCalculation.Size = new System.Drawing.Size(398, 20);
             this.textBoxForCalculation.TabIndex = 0;
             this.textBoxForCalculation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxForCalculation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -220,11 +226,11 @@
             // firstPartOfCalculation
             // 
             this.firstPartOfCalculation.AutoSize = true;
-            this.firstPartOfCalculation.Location = new System.Drawing.Point(409, 21);
+            this.firstPartOfCalculation.Location = new System.Drawing.Point(358, 25);
             this.firstPartOfCalculation.Name = "firstPartOfCalculation";
             this.firstPartOfCalculation.Size = new System.Drawing.Size(0, 13);
             this.firstPartOfCalculation.TabIndex = 16;
-            this.firstPartOfCalculation.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.firstPartOfCalculation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

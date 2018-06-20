@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculateCommand\CalculateCommands.cs" />
+    <Compile Include="CalculateCommand\CalculateDivideCommand.cs" />
+    <Compile Include="CalculateCommand\CalculateMinusCommand.cs" />
+    <Compile Include="CalculateCommand\CalculateMultiplyCommand.cs" />
+    <Compile Include="CalculateCommand\CalculatePlusCommand.cs" />
+    <Compile Include="CalculateCommand\ICalculateCommand.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

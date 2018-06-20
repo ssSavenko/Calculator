@@ -5,26 +5,28 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Calculator.CalculateCommand;
 using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
-        string pastText = "";
-        bool IsLableFilled = false;
+        private string pastText = "";
+        private int value1 = 0;
+        private char characterOfOperation = ' ';
+        private CalculateCommands commandsForCalculation;
 
         public Form1()
         {
             InitializeComponent();
-            firstPartOfCalculation.Text = "";
+            commandsForCalculation = new CalculateCommands();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             int i;
-            if(!int.TryParse(textBoxForCalculation.Text, out i) && textBoxForCalculation.Text.Length != 0)
+            if((!int.TryParse(textBoxForCalculation.Text, out i) && textBoxForCalculation.Text.Length != 0) || textBoxForCalculation.Text == "0")
             {
                 textBoxForCalculation.Text = pastText; 
             }
@@ -33,11 +35,14 @@ namespace Calculator
                 pastText = textBoxForCalculation.Text;
             }
 
-            if (firstPartOfCalculation.Text.Length != 0)
+            if (firstPartOfCalculation.Text.Length != 0 &&  textBoxForCalculation.Text.Length != 0)
+            {
+                equalButton.Enabled = true;
+            }
+            else
             {
                 equalButton.Enabled = false;
             }
-
             if (textBoxForCalculation.Text.Length > 0 && firstPartOfCalculation.Text.Length == 0)
             {
                 divideButton.Enabled = true;
@@ -56,8 +61,15 @@ namespace Calculator
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            firstPartOfCalculation.Text = "";
-            textBoxForCalculation.Text = "";
+            if (textBoxForCalculation.Text == "")
+            {
+                firstPartOfCalculation.Text = "";
+            }
+            else
+            {
+                pastText = "";
+                textBoxForCalculation.Text = "";
+            }
         }
 
         private void buttonWith1Value_Click(object sender, EventArgs e)
@@ -67,42 +79,92 @@ namespace Calculator
 
         private void buttonWith2Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "2";
         }
 
         private void buttonWith3Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "3";
         }
 
         private void buttonWith4Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "4";
         }
 
         private void buttonWith5Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "5";
         }
 
         private void buttonWith6Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "6";
         }
 
         private void buttonWith7Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "7";
         }
 
         private void buttonWith8Value_Click(object sender, EventArgs e)
         {
-
+            textBoxForCalculation.Text += "8";
         }
 
         private void buttonWith9Value_Click(object sender, EventArgs e)
         {
+            textBoxForCalculation.Text += "9";
+        }
 
+        private void buttonWith0Value_Click(object sender, EventArgs e)
+        {
+            textBoxForCalculation.Text += "0";
+        }
+
+        private void plusButton_Click(object sender, EventArgs e)
+        {
+            value1 = int.Parse(textBoxForCalculation.Text);
+            characterOfOperation = '+';
+            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
+            pastText = "";
+            textBoxForCalculation.Text = "";
+        }
+
+        private void divideButton_Click(object sender, EventArgs e)
+        {
+            value1 = int.Parse(textBoxForCalculation.Text);
+            characterOfOperation = '/';
+            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
+            pastText = "";
+            textBoxForCalculation.Text = "";
+        }
+
+        private void multiplyButton_Click(object sender, EventArgs e)
+        {
+            value1 = int.Parse(textBoxForCalculation.Text);
+            characterOfOperation = '*';
+            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
+            pastText = "";
+            textBoxForCalculation.Text = "";
+        }
+
+        private void minusButton_Click(object sender, EventArgs e)
+        {
+            value1 = int.Parse(textBoxForCalculation.Text);
+            characterOfOperation = '+';
+            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
+            pastText = "";
+            textBoxForCalculation.Text = "";
+        }
+
+        private void equalButton_Click(object sender, EventArgs e)
+        {
+            string newText = commandsForCalculation.PeformCommands(value1, int.Parse(textBoxForCalculation.Text), characterOfOperation).ToString();
+            firstPartOfCalculation.Text = "";
+            pastText = "";
+            textBoxForCalculation.Text = newText;
+            equalButton.Enabled = false;
         }
     }
 }
