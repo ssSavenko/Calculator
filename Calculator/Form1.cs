@@ -14,7 +14,6 @@ namespace Calculator
     {
         private char characterOfOperation = ' ';
         private CalculateCommands commandsForCalculation;
-        private bool isLastOperationEqual = false;
         private string pastText = "";
         private int value1 = 0;
 
@@ -142,11 +141,9 @@ namespace Calculator
         
         private void CalculateTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool newIsLastOperationEqual = false;
             int i;
             if (!int.TryParse(textBoxForCalculation.Text, out i) && textBoxForCalculation.Text.Length != 0)
             {
-                newIsLastOperationEqual = true;
                 textBoxForCalculation.Text = pastText;
             }
             else
@@ -163,7 +160,7 @@ namespace Calculator
                 equalButton.Enabled = false;
             }
 
-            if (textBoxForCalculation.Text.Length > 0 && firstPartOfCalculation.Text.Length == 0 && !isLastOperationEqual)
+            if (textBoxForCalculation.Text.Length > 0 && firstPartOfCalculation.Text.Length == 0)
             {
                 divideButton.Enabled = true;
                 multiplyButton.Enabled = true;
@@ -177,7 +174,6 @@ namespace Calculator
                 minusButton.Enabled = false;
                 plusButton.Enabled = false;
             }
-            isLastOperationEqual = newIsLastOperationEqual;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -204,7 +200,6 @@ namespace Calculator
 
         private void EqualButton_Click(object sender, EventArgs e)
         {
-            isLastOperationEqual = true;
             string newText = commandsForCalculation.PeformCommands(value1, int.Parse(textBoxForCalculation.Text), characterOfOperation).ToString();
             firstPartOfCalculation.Text = "";
             pastText = "";
