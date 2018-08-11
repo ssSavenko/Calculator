@@ -9,7 +9,7 @@ namespace Calculator
         private char characterOfOperation = ' ';
         private CalculateCommands commandsForCalculation;
         private string pastText = "";
-        private int value1 = 0;
+        private int value1;
 
         public CalculatorForm()
         {
