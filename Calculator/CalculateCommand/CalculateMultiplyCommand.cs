@@ -1,6 +1,6 @@
 ﻿namespace Calculator.CalculateCommand
 {
-    class CalculateMultiplyCommand : ICalculateCommand
+    internal class CalculateMultiplyCommand : ICalculateCommand
     {
         public int Calculate(int value1, int value2, char commandCharacter)
         {
