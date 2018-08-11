@@ -135,8 +135,8 @@ namespace Calculator
         
         private void CalculateTextBox_TextChanged(object sender, EventArgs e)
         {
-            int i;
-            if (!int.TryParse(textBoxForCalculation.Text, out i) && textBoxForCalculation.Text.Length != 0)
+            int integerOfTextBox;
+            if (!int.TryParse(textBoxForCalculation.Text, out integerOfTextBox) && textBoxForCalculation.Text.Length != 0)
             {
                 textBoxForCalculation.Text = pastText;
             }
