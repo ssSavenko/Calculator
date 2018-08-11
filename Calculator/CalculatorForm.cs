@@ -17,120 +17,66 @@ namespace Calculator
             commandsForCalculation = new CalculateCommands();
         }
 
+        private void ButtonValueClicked(string buttonValue)
+        {
+            if (textBoxForCalculation.Text == "0")
+            {
+                textBoxForCalculation.Text = buttonValue;
+            }
+            else
+            {
+                textBoxForCalculation.Text += buttonValue;
+            }
+        }
+
         private void ButtonWith0Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text != "0")
-            {
-                textBoxForCalculation.Text += "0";
-            }
+            ButtonValueClicked("0");
         }
 
         private void ButtonWith1Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "1";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "1";
-            }
+            ButtonValueClicked("1");
         }
 
         private void ButtonWith2Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "2";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "2";
-            }
+            ButtonValueClicked("2");
         }
 
         private void ButtonWith3Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "3";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "3";
-            }
+            ButtonValueClicked("3");
         }
 
         private void ButtonWith4Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "4";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "4";
-            }
+            ButtonValueClicked("4");
         }
 
         private void ButtonWith5Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "5";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "5";
-            }
+            ButtonValueClicked("5");
         }
 
         private void ButtonWith6Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "6";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "6";
-            }
+            ButtonValueClicked("6");
         }
 
         private void ButtonWith7Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "7";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "7";
-            }
+            ButtonValueClicked("7");
         }
 
         private void ButtonWith8Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "8";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "8";
-            }
+            ButtonValueClicked("8");
         }
 
         private void ButtonWith9Value_Click(object sender, EventArgs e)
         {
-            if (textBoxForCalculation.Text == "0")
-            {
-                textBoxForCalculation.Text = "9";
-            }
-            else
-            {
-                textBoxForCalculation.Text += "9";
-            }
+            ButtonValueClicked("9");
         }
         
         private void CalculateTextBox_TextChanged(object sender, EventArgs e)
@@ -183,13 +129,18 @@ namespace Calculator
             }
         }
 
-        private void DivideButton_Click(object sender, EventArgs e)
+        private void OpereationButtonClicked(char operation)
         {
             value1 = int.Parse(textBoxForCalculation.Text);
-            characterOfOperation = '/';
+            characterOfOperation = operation;
             firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
             pastText = "";
             textBoxForCalculation.Text = "";
+        }
+
+        private void DivideButton_Click(object sender, EventArgs e)
+        {
+            OpereationButtonClicked('/');
         }
 
         private void EqualButton_Click(object sender, EventArgs e)
@@ -203,29 +154,17 @@ namespace Calculator
 
         private void MinusButton_Click(object sender, EventArgs e)
         {
-            value1 = int.Parse(textBoxForCalculation.Text);
-            characterOfOperation = '-';
-            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
-            pastText = "";
-            textBoxForCalculation.Text = "";
+            OpereationButtonClicked('-');
         }
 
         private void MultiplyButton_Click(object sender, EventArgs e)
         {
-            value1 = int.Parse(textBoxForCalculation.Text);
-            characterOfOperation = '*';
-            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
-            pastText = "";
-            textBoxForCalculation.Text = "";
+            OpereationButtonClicked('*');
         }
 
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            value1 = int.Parse(textBoxForCalculation.Text);
-            characterOfOperation = '+';
-            firstPartOfCalculation.Text = textBoxForCalculation.Text + ' ' + characterOfOperation;
-            pastText = "";
-            textBoxForCalculation.Text = "";
+            OpereationButtonClicked('+');
         }
     }
 }
