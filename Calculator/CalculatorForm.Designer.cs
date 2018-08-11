@@ -308,4 +308,3 @@
         private System.Windows.Forms.Label firstPartOfCalculation;
     }
 }
-
